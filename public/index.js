@@ -237,3 +237,36 @@ window.addEventListener('load', function () {
     printWindow.focus();
     printWindow.print();
 });
+
+const { jsPDF } = window.jspdf;
+
+
+document.getElementById('downloadBtn').addEventListener('click', () => {
+    // Get the element to be converted to PDF
+    const resumeShowElement = document.querySelector('.resume-show');
+
+    // Use html2canvas to capture the element
+    html2canvas(resumeShowElement).then(canvas => {
+        const imgData = canvas.toDataURL('image/png'); // Convert canvas to image
+        const pdf = new jsPDF('p', 'mm', 'a4'); // Create a new PDF instance
+        const imgWidth = 210; // A4 width in mm
+        const pageHeight = 295; // A4 height in mm
+        const imgHeight = canvas.height * imgWidth / canvas.width;
+        let heightLeft = imgHeight;
+        let position = 0;
+
+        // Add image to PDF and handle pagination if needed
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+        
+        while (heightLeft >= 0) {
+            position -= pageHeight;
+            pdf.addPage();
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+        }
+
+        // Save the PDF
+        pdf.save('resume.pdf');
+    });
+});
