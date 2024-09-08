@@ -212,27 +212,27 @@ const createSkillEntry = (skillName, skillRating) => {
 (_d = document.getElementById('generateLinkBtn')) === null || _d === void 0 ? void 0 : _d.addEventListener('click', () => {
     const username = document.getElementById('inputFirstName').value;
     if (username) {
-        // Generate a unique key based on username
-        const uniqueKey = btoa(username); // Base64 encoding for simplicity
+       
+        const uniqueKey = btoa(username); 
         const resumeData = {
-            // Collect resume data
+            
             firstName: document.getElementById('inputFirstName').value,
             lastName: document.getElementById('inputLastName').value,
             email: document.getElementById('inputEmail').value,
-            // Add other data as needed
+           
         };
-        // Save resume data in localStorage
+       
         localStorage.setItem(`resume-${uniqueKey}`, JSON.stringify(resumeData));
-        // Create a shareable link
+       
         const link = `${window.location.origin}/?resume=${uniqueKey}`;
-        // Create a temporary input element to copy the link
+        
         const tempInput = document.createElement('input');
         tempInput.value = link;
         document.body.appendChild(tempInput);
         tempInput.select();
         document.execCommand('copy');
         document.body.removeChild(tempInput);
-        // Show an alert with a message
+        
         alert(`The link has been copied to your clipboard:\n${link}`);
     }
     else {
@@ -246,7 +246,7 @@ window.addEventListener('load', () => {
         const resumeData = localStorage.getItem(`resume-${uniqueKey}`);
         if (resumeData) {
             const data = JSON.parse(resumeData);
-            // Populate resume fields with data
+           
             document.getElementById('inputFirstName').value = data.firstName;
             document.getElementById('inputLastName').value = data.lastName;
             document.getElementById('inputEmail').value = data.email;

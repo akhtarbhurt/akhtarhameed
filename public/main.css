@@ -25,7 +25,7 @@
 
 .input-group {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 20px;
 }
 
@@ -204,16 +204,24 @@ footer .download-elem button{
 
 
 
+.input-group input,
+.text-area,
+.addMoreBtn {
+    width: 100%;
+}
+
+.input-group {
+    grid-template-columns: 1fr; 
+}
 
 
-/* Responsive adjustments */
 @media (max-width: 1024px) {
     .container {
         grid-template-columns: 1fr; 
         width: 100%;
     }
     .mt-1, .mt-2, .mt-3 {
-        margin-top: 15px; /* or another value that fits */
+        margin-top: 15px; 
     }
 
     .text-area {
