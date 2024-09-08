@@ -10,21 +10,22 @@
 </head>
 
 <body>
+ 
   <div class="container" id="container">
     <div class="resume-input">
       <!-- personal details starts here  -->
       <div class="peronsal-details input-group" id="professionalDetails">
         <div>
           <label for="">Job Title</label>
-          <input type="text" id="inputJobTitle" placeholder="the role you want">
+          <input type="text" id="inputJobTitle" placeholder="the role you want" required >
         </div>
         <div>
           <label for="">Profile Photo</label>
-          <input type="file" id="inputProfilePhoto">
+          <input type="file" id="inputProfilePhoto" required >
         </div>
         <div>
           <label for="">First Name</label>
-          <input type="text" id="inputFirstName" placeholder="enter your first name">
+          <input type="text" id="inputFirstName" placeholder="enter your first name" required >
         </div>
         <div>
           <label for="">Last Name</label>
@@ -219,14 +220,15 @@
   </div>
   <footer>
     <div class="download-elem" >
-      <button id="downloadBtn">Download</button>
-      <button id="generateLinkBtn">Generate Shareable Link</button>
+      <button  id="downloadBtn">Download</button>
+      <button  id="generateLinkBtn">Generate Shareable Link</button>
     <button id="printBtn">Print</button>
     </div>
     <div>
       <p>Created by Akhtar Hameed Roll No: 00467339 </p>
     </div>
   </footer>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="./index.js"></script>
